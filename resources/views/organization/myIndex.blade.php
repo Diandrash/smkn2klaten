@@ -24,6 +24,16 @@
                             <a href="/articles/{{ $extra->id }}/show" class="font-semibold text-sm mt-1 text-blue-600 hover:text-blue-900">Read More</a>
                         </div>
                     </div>
+
+                    <div class="action-area mt-3 mx-2 flex gap-2 pb-5">
+                        <button class="bg-emerald-600 hover:bg-emerald-800 p-2 rounded-md" onclick="location.href='/articles/{{ $article->id }}/show'"><img src="/icons/eye.svg" class="w-6" alt=""></button>
+                        <button class="bg-amber-300 hover:bg-amber-500 p-2 rounded-md" onclick="location.href='/myarticles/{{ $article->id }}/edit'"><img src="/icons/pencil.svg" class="w-6" alt="" ></button>
+                        <form action="/myarticles/{{ $article->id }}/delete" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bg-red-600 hover:bg-red-800 p-2 rounded-md" onclick="confirm('Sure to Delete')"><img src="/icons/trash.svg" class="w-5" alt=""></button>
+                        </form>
+                    </div>
                 </div>
             @endforeach
         </div>
