@@ -15,7 +15,7 @@
                         <h1 class="extraname font-semibold text-xl text-black text-center">{{ $extra->name }}</h1>
                         <p class="line-clamp-6 text-center text-sm mt-1">{{ $extra->description }}</p>
                         <div class="flex justify-center">    
-                            <a href="/articles/{{ $extra->id }}/show" class="font-semibold text-sm mt-1 text-blue-600 hover:text-blue-900">Read More</a>
+                            <a href="/myorganization/{{ $extra->id }}/show" class="font-semibold text-sm mt-1 text-blue-600 hover:text-blue-900">Read More</a>
                         </div>
                     </div>
                 </div>
