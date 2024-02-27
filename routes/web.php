@@ -51,4 +51,7 @@ Route::delete('/myarticles/{article}/delete', [ArticleController::class, 'destro
 Route::get('/organization', [OrganizationController::class, 'index']);
 Route::get('/myorganization', [OrganizationController::class, 'myIndex']);
 Route::get('/myorganization/create', [OrganizationController::class, 'create']);
+Route::get('/myorganization/{organization}/show', [OrganizationController::class, 'show']);
+Route::get('/myorganization/{organization}/edit', [OrganizationController::class, 'edit']);
+Route::put('/myorganization/{organization}/edit', [OrganizationController::class, 'update']);
 Route::post('/myorganization/create', [OrganizationController::class, 'store']);

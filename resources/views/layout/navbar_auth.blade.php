@@ -3,8 +3,8 @@
         <img src="/img/long-logo.png" class="w-36" alt="">
     </div>
     <div class="navlist flex list-none font-semibold text-xl self-center gap-16">
-        <li class="text-black hover:text-amber-600"><a href="">Beranda</a></li>
-        <li class="text-black hover:text-amber-600"><a href="">Tentang</a></li>
+        <li class="text-black hover:text-amber-600"><a href="/home">Beranda</a></li>
+        <li class="text-black hover:text-amber-600"><a href="/home#about">Tentang</a></li>
         <li class="text-black hover:text-amber-600"><a href="/organization">Organisasi</a></li>
         <li class="text-black hover:text-amber-600"><a href="/articles">Berita</a></li>
         <li class="text-black hover:text-amber-600"><a href="/myarticles">Kelola</a></li>

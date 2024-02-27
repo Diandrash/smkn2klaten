@@ -60,7 +60,7 @@ class OrganizationController extends Controller
             'image' => $filename,
         ]);
 
-        Alert::success('Success', 'Berita Berhasil Dibuat');
+        Alert::success('Success', 'Organisasi Berhasil Dibuat');
         return redirect()->intended('/myorganization');
     }
 
@@ -69,7 +69,10 @@ class OrganizationController extends Controller
      */
     public function show(Organization $organization)
     {
-        //
+        return view('organization.show', [
+            'title' => 'Organisasi' . $organization->name,
+            'organization' => $organization,
+        ]);
     }
 
     /**
@@ -77,7 +80,10 @@ class OrganizationController extends Controller
      */
     public function edit(Organization $organization)
     {
-        //
+        return view('organization.edit', [
+            'title' => 'Edit' . $organization->name,
+            'organization' => $organization,
+        ]);
     }
 
     /**
@@ -85,7 +91,29 @@ class OrganizationController extends Controller
      */
     public function update(UpdateOrganizationRequest $request, Organization $organization)
     {
-        //
+        
+        $ValidatedData = $request->validate([
+            'name' => 'required|min:3|max:300',
+            'description' => 'required|min:3',
+            'image' => '',
+        ]);
+
+        $filename = $organization->image;
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = $file->getClientOriginalName();
+            $file->move('img', $filename);
+        }
+
+        $organization->update([
+            'name' => $ValidatedData['name'],
+            'description' => $ValidatedData['description'],
+            'image' => $filename,
+        ]);
+
+        Alert::success('Success', 'Organisasi Berhasil Diubah');
+        return redirect()->intended('/myorganization');
     }
 
     /**
